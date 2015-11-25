@@ -343,8 +343,8 @@ Main.keyDown = function() {
 		}
 		else {
 			//Main.changeCategory(0);
-			menu = 'materialType';
-			Main.selectMenuItem('next');
+			//menu = 'materialType';
+			Main.selectMaterialKey('next');
 		}
 		
 		break;
@@ -1399,6 +1399,37 @@ Main.selectMenu = function(index)
 	Main.menuIndex = index;
 	$("#menu > li").removeClass("active");
 	$("#menu_"+index).addClass("active");
+}
+
+Main.selectMaterialKey = function(direction)
+{
+	var tempArr = [];
+			
+			$.each(EX_MaterialType, function(key,title) {
+				tempArr.push(key);
+			});
+			
+			var index = tempArr.indexOf(Main.materialType);
+
+			if(index > -1){
+				if(direction == 'next'){
+					index = ((index + 1) < tempArr.length) ? index + 1 : 0;
+				} else {
+					index = ((index - 1) >= 0) ? index - 1 : tempArr.length - 1;
+				}
+				
+				Main.materialType = tempArr[index];
+				Main.mnCurrentCategory = 1;
+				
+				Main.setCategory();
+				Main.clearBlocks();
+
+				if(EX_CategoryWords[Main.mnCurrentCategory] != undefined){
+					Main.changeCategory(Main.mnCurrentCategory);
+				}
+				
+				//Main.selectMenu(2);
+			}
 }
 
 Main.selectMenuItem = function(direction) 
