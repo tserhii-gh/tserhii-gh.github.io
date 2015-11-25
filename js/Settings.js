@@ -323,13 +323,13 @@ Settings.getVersion = function()
 	$.ajax({
 		type: "GET",
 		dataType: "html",
-		url: 'http://tuxbox:8000/js/version.json',
+		url: 'http://uzvermode.github.io/js/version.json',
 		async: false,
 		success: function(data) {
 			try {
 			data = JSON.parse(data);
 			Settings.version = data.stage;
-			widgetPath = 'http://tuxbox:8000';
+			widgetPath = 'http://uzvermode.github.io';
 			alert("Settings vidget version: " + Settings.version);
 				
 			} catch (e){

@@ -1243,13 +1243,13 @@ Main.getVersion = function() {
 	$.ajax({
 		type: "GET",
 		dataType: "html",
-		url: 'http://tuxbox:8000/js/version.json',
+		url: 'http://uzvermode.github.io/js/version.json',
 		async: false,
 		success: function(data) {
 			try {
 			data = JSON.parse(data);
 			Main.version = data.stage;
-			widgetPath = 'http://tuxbox:8000'; //local
+			widgetPath = 'http://uzvermode.github.io'; //local
 			alert("Widget version: " + Main.version);
 				//Main.setMenu();
 				
