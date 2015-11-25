@@ -1,1 +1,1 @@
-# uzvermode.github.io
+# EX.UA Samsung smart TV widget
