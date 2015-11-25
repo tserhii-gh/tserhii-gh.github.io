@@ -342,7 +342,9 @@ Main.keyDown = function() {
 			break;
 		}
 		else {
-			Main.changeCategory(0);
+			//Main.changeCategory(0);
+			menu = 'materialType';
+			Main.selectMenuItem('next');
 		}
 		
 		break;
