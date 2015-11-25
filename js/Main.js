@@ -1238,7 +1238,7 @@ Main.changeCategory = function(catID)
 	}
 }
 
-// Получаем версию виджета из config.xml
+// Получаем версию виджета из version.json
 Main.getVersion = function() {
 	$.ajax({
 		type: "GET",
