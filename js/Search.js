@@ -56,6 +56,12 @@ Search.onEnter = function(string) {
 					}
 				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/our"){
 					scat = "original_id=70538&";
+				}
+				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/foreign"){
+					scat = "original_id=2&";
+				}
+				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/foreign_series"){
+					scat = "original_id=1988&";
 				} 
 				else {
 					scat = '';
