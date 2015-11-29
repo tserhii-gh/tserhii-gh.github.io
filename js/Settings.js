@@ -317,7 +317,7 @@ Settings.load = function() {
 	}
 };
 
-// Получаем версию виджета из config.xml
+// Получаем версию виджета из version.json
 Settings.getVersion = function() 
 {
 	$.ajax({
