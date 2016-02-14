@@ -26,6 +26,11 @@
 				"chanel" : "5",
 				"title"	 : "Мультфильмы",
 				"url"	 : "/ru/video/cartoon"
+			},
+			"DOCUMENTARY" : {
+				"chanel" : "6",
+				"title"	 : "Документальное",
+				"url"	 : "/ru/video/documentary"
 			}
 		},
 		"AUDIO" : {
