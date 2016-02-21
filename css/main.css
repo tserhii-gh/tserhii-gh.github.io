@@ -785,7 +785,7 @@ label.selected {
 	position: absolute;
 	left: 230px; 
 	top: 11px;
-	width: 640px;
+	width: 500px;
 	height: 15px;
 	overflow: hidden;
 	background-image: url("../img/progressBarBG.png");
