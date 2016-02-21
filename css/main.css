@@ -753,7 +753,7 @@ label.selected {
 }
 
 #player .p_second_line {
-	height: 0px;
+	height: 0;
 	padding-top: 31px;
 	width: 100%;
 }
@@ -789,7 +789,7 @@ label.selected {
 	position: absolute;
 	left: 230px; 
 	top: 11px;
-	width: 500px; 
+	width: 640px;
 	height: 15px;
 	overflow: hidden;
 	background-image: url("../img/progressBarBG.png");
@@ -800,7 +800,7 @@ label.selected {
 	position: absolute;
 	left: 230px; 
 	top: 11px;
-	width: 0px; 
+	width: 0;
 	height: 15px;
 	background-image: url("../img/progressBar.png");
 }
@@ -847,7 +847,7 @@ label.selected {
 	height: 16px;
 	display: block;
 	
-	margin: -25px 5px 0px 50px;
+	margin: -25px 5px 0 50px;
 	
 	position: relative;
 	z-index: 500;
@@ -888,9 +888,8 @@ label.selected {
 #description TABLE{
 	font-size: 13px;
 /*	float: right;*/
-	margin:0;
 	padding:0;
-	margin-top: 10px;
+	margin: 10px 0 0;
 }
 
 #description TABLE TD{
@@ -970,7 +969,7 @@ z-index: 98;
 	background: rgba(40, 46, 61, 0.75);
 	border: 1px solid #222;
 	border-radius: 4px;
-	box-shadow: inset 0px 200px 0px rgba(255,255,255,0.15),
+	box-shadow: inset 0 200px 0 rgba(255,255,255,0.15),
     inset 1px 1px 0 rgba(255,255,255,0.3),
     inset -1px -1px 0 rgba(255,255,255,0.2),
     inset 0 5px 10px rgba(255,255,255,0.15),
