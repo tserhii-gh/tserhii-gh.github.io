@@ -31,6 +31,11 @@
 				"chanel" : "6",
 				"title"	 : "Документальное",
 				"url"	 : "/ru/video/documentary"
+			},
+			"UZVERMODE" : {
+				"chanel" : "7",
+				"title"	 : "UZVERMODE",
+				"url"	 : "/user/uzvermode"
 			}
 		},
 		"AUDIO" : {
