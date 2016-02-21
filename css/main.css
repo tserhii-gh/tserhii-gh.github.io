@@ -857,14 +857,14 @@ label.selected {
 	overflow: hidden;
 }
 
-.b-poster-info .quality{
+/*.b-poster-info .quality{
 	display:block;
 	float:left;
 	width:21px;
 	height:16px;
 	background-image: url("../img/poster-info-quality.png");
 	background-repeat:no-repeat;
-}
+}*/
 
 .b-poster-info .quality.m-hd{background-position:0 3px}
 .b-poster-info .quality.m-hq{background-position:0 -22px}
@@ -920,7 +920,7 @@ label.selected {
 	font-size:19px;
 	line-height:19px
 }
-.m-tab-item__vote-value_type_yes{
+/*.m-tab-item__vote-value_type_yes{
 	background:url("../img/vote_yes.png") left 2px no-repeat;
 	color:#62b56d
 }
@@ -928,7 +928,7 @@ label.selected {
 	padding-left:17px;
 	background:url("../img/vote_no.png") left 4px no-repeat;
 	color:#bf5257
-}
+}*/
 
 #info{
     z-index: 99;
@@ -978,7 +978,7 @@ z-index: 98;
 	text-shadow: -1px -1px 0 #222,
     1px -1px 0 #222,
     -1px 1px 0 #222,
-    1px 1px 0 #222
+    1px 1px 0 #222;
 	z-index: 999;
 }
 
