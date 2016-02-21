@@ -62,7 +62,13 @@ Search.onEnter = function(string) {
 				}
 				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/foreign_series"){
 					scat = "original_id=1988&";
-				} 
+				}
+				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/cartoon"){
+					scat = "original_id=1989&";
+				}
+				else if (EX_Category_URL[Main.mnCurrentCategory] == "/ru/video/documentary"){
+					scat = "original_id=1987&"
+				}
 				else {
 					scat = '';
 				}
