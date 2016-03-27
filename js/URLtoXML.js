@@ -358,7 +358,7 @@ URLtoXML.ParseXMLData = function() {
 			}
 					
 			//myRe = new RegExp("\<a href=\'\/get\/(.*)\' title.*>(.*)<\/a>.*\r\n\.*width=110>(.*)\r\n.*\r\n(.*)","igm");
-			myRe = new RegExp("\<a href=\'\/get\/(.*)\' title.*>(.*)<\/a>.*\n.*width=110>(.*)\n.*\n(.*)\n.*\n\\s*<b>(.*)</b>","igm");
+			myRe = new RegExp("\<a href=\'\/get\/(.*)\' title.*>(.*)<\/a>.*\n.*\n.*width=110>(.*)\n.*\n(.*)\n.*\n\\s*<b>(.*)<\/b>","igm");
 			while (sres = myRe.exec(sOut)) {
 				//alert (sres[0]);
 				alert ("full: "+sres[1]);

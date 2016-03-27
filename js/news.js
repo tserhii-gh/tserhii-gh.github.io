@@ -1,6 +1,6 @@
 var News = {
-	vers: "1.0.2", // Новая Версия
-	isVisible: false,
+	vers: "0.4", // Новая Версия
+	isVisible: false
 };
 
 alert ("VERSION "+Main.version);
