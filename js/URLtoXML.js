@@ -123,7 +123,8 @@ URLtoXML.ParsePageDesctData = function() {
 		sOut = sOut.substr(0,200000);
 
 		if (Main.MATERIALL == 3){
-			var myRe = new RegExp("valign=top>\r\n[\\s\\S]*<\/script>([\\s\\S]*)<\/td><td width=","igm");
+			//var myRe = new RegExp("valign=top>\r\n[\\s\\S]*<\/script>([\\s\\S]*)<\/td><td width=","igm");
+			var myRe = new RegExp("id=\'post\'>(.*)<\/div>","igm");
 			if (match = myRe.exec(sOut)){
 				this.pDes[Main.index] = '<div class="desc">'+match[1]+'</div>';
 				this.pDes[Main.index] = this.pDes[Main.index].replace("&nbsp;"," ");
