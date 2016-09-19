@@ -281,7 +281,7 @@ Display.setTime = function(time)
 };
 
 Display.Timeout = function() {
-	if (b<URLtoXML.pUrlSt.length-1){
+	/*if (b<URLtoXML.pUrlSt.length-1){
 		Display.obj.selectNextElem(); // переключение на след. трек
 		if(Player.playWeb) {
 			url = URLtoXML.getWebVerURL(URLtoXML.WpUrlSt[b]); // get web url for content
@@ -289,10 +289,10 @@ Display.Timeout = function() {
 			url = URLtoXML.pUrlSt[b];
 		}
 		Display.obj.play(url, true); // второй параметр: true - с начала, false - с места остановки
-	}else{
+	}else{*/
 		Player.stopVideo();
 		Display.obj.setWindowMode();
-	}
+	//}
 };
 
 Display.showResumeFromTime = function() {
