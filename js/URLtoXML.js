@@ -121,24 +121,23 @@ URLtoXML.ParsePageDesctData = function() {
 
 		sOut = DelTrash(this.xmlHTTPDescr.responseText);
 		sOut = sOut.substr(0,200000);
-
 		if (Main.MATERIALL == 3){
-			//var myRe = new RegExp("valign=top>\r\n[\\s\\S]*<\/script>([\\s\\S]*)<\/td><td width=","igm");
-			var myRe = new RegExp("id=\'post\'>(.*)<\/div>","igm");
+			var myRe = new RegExp("valign=top>\r\n[\\s\\S]*<\/script>([\\s\\S]*)<\/td><td width=","igm");
 			if (match = myRe.exec(sOut)){
-				this.pDes[Main.index] = '<div class="desc">'+match[1]+'</div>';
+				alert('Match Description MAT#3'); // = ' + match[0]);
+				this.pDes[Main.index] = '<div class="desc">'+match[0]+'</div>';
 				this.pDes[Main.index] = this.pDes[Main.index].replace("&nbsp;"," ");
 				
 				$("#description").html("<div class='poster'><img src='" + this.ImgDickr[Main.index] + "'/></div>" + this.pDes[Main.index]);
 			}
 		} else {
-			var myRe = new RegExp("valign=top>\\n<img src=\'(.*)\' width=[\\s\\S]*<\/small>([\\s\\S]*)\<table id=\'ad_block_1\'","igm");
+			var myRe = new RegExp("valign=top>\\n<img src=\'(.*)\' width=[\\s\\S]*<\/small>([\\s\\S]*)\<div id=\'post\'>(.*)<\/div>","igm");
 			if (descr = myRe.exec(sOut)){
 				
 				var ImgDickr_D = descr[1];
 				
 				// Описание
-				this.pDes[Main.index] = '<div class="desc">'+descr[2]+'</div>';
+				this.pDes[Main.index] = '<div class="desc">'+descr[3]+'</div>';
 				this.pDes[Main.index] = this.pDes[Main.index].replace("&nbsp;"," ");
 				
 				$("#description").html("<div class='poster'><img src='" + ImgDickr_D + "'/></div>" + this.pDes[Main.index]);
