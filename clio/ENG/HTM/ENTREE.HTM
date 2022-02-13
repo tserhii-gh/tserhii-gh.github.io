@@ -1,0 +1,72 @@
+<HTML>
+<HEAD>
+<META http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<TITLE>CLIO III - N.T.8483 
+-  ...&gt; 18/05/2009</TITLE>
+<META content="text/html; charset=UTF-8" http-equiv="Content-Type">
+</HEAD>
+<script type="text/javascript" language="JavaScript1.1">
+			
+	function getAllParams()
+	{
+		var tabParam = new Array();
+		var paramString = window.location.search.substr(1,window.location.search.length);
+
+		if ((paramString != "")&&(paramString != null)) {
+			donnees = paramString.split("&");
+			for (var i=0; i < donnees.length; i++) {
+				position = donnees[i].indexOf("=");
+				variable = donnees[i].substr(0,position);
+				pos = position + 1;
+				valeur = donnees[i].substr(pos,donnees[i].length);
+				while (valeur.search(/\+/) != -1)
+					valeur = valeur.replace(/(^\s*)|(\s*$)/g,'');
+				
+				tabParam[variable]=valeur;
+			}
+		} 
+		return tabParam;
+	}
+			
+	function LocFrames()
+	{
+		var tableParams = parent.getAllParams();
+		var typLiaOrg 	= tableParams["type"];
+		var codLiaOrg 	= tableParams["code"];
+		if( (typLiaOrg != null) && (typLiaOrg!="") )
+		{
+			if(typLiaOrg == "L"){
+				parent.titre.location.href="./CLTITRE.HTM" + window.location.search;
+			}
+			 else{
+				 parent.titre.location.href="./CTITRE.HTM" + window.location.search;
+			}
+			if ( codLiaOrg =="Erreur")
+			{
+				parent.doc.location.href="../DOCUMENT/ERREURCODEORGLIA.PDF";
+			}
+		}
+		else
+		{
+			parent.doc.location.href="../DOCUMENT/CLAUSLEG.PDF";
+		}
+	}
+			
+</script>
+<FRAMESET rows="*" cols="216,747">
+<FRAMESET cols="*" rows="141,510">
+<FRAME scrolling="AUTO" bordercolor="#003366" name="titre" src="./CTITRE.HTM">
+<FRAME scrolling="AUTO" bordercolor="#003366" name="org" src="./CODE.HTM">
+</FRAMESET>
+<FRAMESET cols="*" rows="150,543">
+<FRAMESET onLoad="LocFrames()" ROWS="50%,50%">
+<FRAME src="./MENU.HTM" name="menu" bordercolor="#003366" scrolling="AUTO">
+<FRAME src="../../COMMUN/HTM/BLANK.HTM" name="nav" bordercolor="#003366" scrolling="AUTO">
+</FRAMESET>
+<FRAME src="../../COMMUN/HTM/BLANK.HTM" bordercolor="#003366" name="doc">
+</FRAMESET>
+</FRAMESET>
+<NOFRAMES>
+<BODY bgcolor="#FFFFFF"></BODY>
+</NOFRAMES>
+</HTML>
