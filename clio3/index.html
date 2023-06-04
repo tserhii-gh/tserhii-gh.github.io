@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-icons.css" />
+    <title>Clio III Electric Diagrams</title>
+    <!-- <script src="lib/ru/code.json.js"></script> -->
+    <!-- <script src="lib/ru/circuits.json.js"></script>
+    <script src="lib/ru/appliances.json.js"></script> -->
+    <script src="lib/ru/nm.json.js"></script>
+    <script src="lib/ru/nm_crt.json.js"></script>
+    <script src="lib/ru/nm_t.json.js"></script>
+    <script src="lib/ru/sch.json.js"></script>
+    <script src="lib/ru/sch_crt.json.js"></script>
+    <script src="lib/ru/parts_list.json.js"></script>
+    <script src="lib/ru/circuits_list.json.js"></script>
+    <script src="assets/js/vue.min.js"></script>
+  </head>
+  <body class="bg-white">
+    <div class="container" id="app">
+      <!-- Search bar start -->
+      <div class="row p-4">
+        <div class="input-group">
+          <div class="input-group-prepend">
+            <span class="input-group-text" id="addon-wrapping"
+              ><i class="bi bi-search"></i
+            ></span>
+          </div>
+          <input
+            id="search_input"
+            ref="search_input"
+            type="text"
+            v-model="search"
+            class="form-control"
+            placeholder="КОД або НАЗВА(російською)"
+            aria-label="Recipient's username with two button addons"
+            aria-describedby="button-addon4"
+            autofocus
+          />
+          <div class="input-group-append">
+            <button
+              class="btn btn-primary dropdown-toggle"
+              type="button"
+              data-toggle="dropdown"
+              aria-expanded="false"
+            >
+              {{ current_category.title }}
+            </button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                ref="parts"
+                role="button"
+                @click="selectCategory(0)"
+                ><i class="bi bi-search pr-2"></i>{{ category_list[0].title
+                }}</a
+              >
+              <a
+                class="dropdown-item"
+                ref="circuits"
+                role="button"
+                @click="selectCategory(1)"
+                ><i class="bi bi-search pr-2"></i>{{ category_list[1].title
+                }}</a
+              >
+              <div role="separator" class="dropdown-divider"></div>
+              <a
+                class="dropdown-item"
+                role="button"
+                @click="showDocumentSlider('fuses')"
+                ><i class="bi bi-book pr-2"></i>Fuses</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- Search bar end -->
+      <!-- Alert start -->
+      <alert-message
+        :show_message="show_alert"
+        :message="message"
+      ></alert-message>
+      <!-- <div class="row justify-content-center" v-if="show_alert">
+        <div class="col-md-auto">
+          <div class="align-self-center text-center">
+            <div class="alert alert-warning font-weight-bold" role="alert">
+              {{ alert_message }}
+            </div>
+          </div>
+        </div>
+      </div> -->
+      <!-- Alert end -->
+      <!-- Fuzzy search results start-->
+      <table class="table table-bordered table-hover" v-if="show_results_table">
+        <thead class="thead-dark">
+          <tr>
+            <th scope="col">Код</th>
+            <th scope="col">Найменування</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr
+            v-for="i in sq"
+            :key="i.item.id"
+            role="button"
+            @click="selectItem(i.item.id)"
+            class="text-center"
+          >
+            <th scope="row" class="align-middle">{{ i.item.id }}</th>
+            <td class="align-middle">{{ i.item.desc }}</td>
+          </tr>
+        </tbody>
+      </table>
+      <!-- Fuzzy search results end -->
+      <!-- Image slider start -->
+      <div
+        id="carouselExampleControls"
+        class="carousel border"
+        data-interval="false"
+        data-touch="false"
+        v-if="show_slider"
+      >
+        <div class="carousel-inner">
+          <div
+            class="carousel-item"
+            v-for="(i, idx) in current_document_imgs"
+            :class="{ active: idx==0 }"
+            :key="i"
+          >
+            <img :src="`${i}`" class="d-block w-100" alt="..." />
+          </div>
+        </div>
+        <button
+          class="carousel-control-prev"
+          type="button"
+          data-target="#carouselExampleControls"
+          data-slide="prev"
+        >
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="sr-only">Previous</span>
+        </button>
+        <button
+          class="carousel-control-next"
+          type="button"
+          data-target="#carouselExampleControls"
+          data-slide="next"
+        >
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="sr-only">Next</span>
+        </button>
+      </div>
+      <!-- Image slider end -->
+      <!-- Selected item options start -->
+      <div class="row justify-content-center p-4" v-if="show_info">
+        <!-- <div class="dropdown m-1">
+          <button
+            class="btn btn-danger dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+          >
+            Вибрати
+          </button>
+          <item-selector :procdata="curItemData"></item-selector>
+        </div> -->
+        <button class="btn btn-primary m-1">Схеми</button>
+        <button class="btn btn-primary m-1">Роз'єми</button>
+        <button class="btn btn-primary m-1">Розташування</button>
+
+        <!-- <app-progress></app-progress> -->
+        <!-- <div class="dropdown m-1">
+          <button
+            class="btn btn-danger dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+          >
+            Вибрати
+          </button>
+          <div class="dropdown-menu">
+            <h class="dropdown-header">test</h>
+            <a class="dropdown-item" href="#">Action</a>
+          </div>
+        </div> -->
+      </div>
+      <div class="row justify-content-center p-4">
+        <div class="dropdown m-1">
+          <button
+            class="btn btn-danger dropdown-toggle"
+            type="button"
+            data-toggle="dropdown"
+          >
+            Вибрати
+          </button>
+          <item-selector :procdata="curItemData"></item-selector>
+        </div>
+      </div>
+      <!-- <div class="row p-4">
+
+      </div> -->
+      <!-- Selected item options end -->
+    </div>
+    <script src="assets/js/fuse.basic.js"></script>
+    <script src="assets/js/jquery.slim.min.js"></script>
+    <script src="assets/js/bootstrap.bundle.min.js"></script>
+    <script src="assets/js/app.js"></script>
+  </body>
+</html>

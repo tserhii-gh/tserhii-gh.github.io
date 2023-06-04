@@ -1,0 +1,12 @@
+/* body{
+  color
+} */
+/* 
+.carousel.pointer-event {
+  touch-action: pan-y pinch-zoom;
+} */
+
+.carousel-control-next,
+.carousel-control-prev /*, .carousel-indicators */ {
+    filter: invert(100%);
+}
