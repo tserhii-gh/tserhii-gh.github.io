@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+      integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <title>PWG</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-box">
+        <h2>PWG</h2>
+        <form action="" onsubmit="generate()">
+          <div class="input-text-box">
+            <input
+              type="password"
+              id="passphrase"
+              placeholder="PASSPHRASE"
+              required=""
+            />
+            <span class="password-toggle-icon"
+              ><i class="fas fa-eye" onclick="toggleVisibility(this)"></i
+            ></span>
+          </div>
+          <div class="input-text-box">
+            <input
+              type="password"
+              id="pin"
+              placeholder="PIN"
+              pattern="[0-9]*"
+            />
+            <span class="password-toggle-icon"
+              ><i class="fas fa-eye" onclick="toggleVisibility(this)"></i
+            ></span>
+          </div>
+          <div class="button-box">
+            <input type="submit" class="button-generate" value="Generate" />
+          </div>
+        </form>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
