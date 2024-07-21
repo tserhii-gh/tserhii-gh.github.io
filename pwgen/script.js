@@ -28,10 +28,9 @@ async function sha512(str) {
 }
 
 async function generate() {
-  const pp = document.querySelector("#passphrase");
-  const p = document.querySelector("#pin");
-  if (pp.value) {
-    let s = (await sha512(pp.value + p.value)).slice(0, 12);
+  const phrase = document.querySelector("#passphrase");
+  if (phrase.value) {
+    let s = (await sha512(phrase.value)).slice(0, 12);
     navigator.clipboard.writeText(stringToBase64(new TextEncoder().encode(s)));
   }
 }
